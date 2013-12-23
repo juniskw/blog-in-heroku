@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #coding:utf-8
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -73,4 +74,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = {
 	os.path.join(BASE_DIR,'static'),
 }
-#jjj
+#jjji
+
+
+## Sentry
+
+INSTALLED_APPS = INSTALLED_APPS + (
+	'raven.contrib.django.raven_compat',
+)
+
+from raven.contrib.django.models import client
+from raven.base import Client
+
+client = Client()
+
+try:
+	1/0
+except Exception:
+	client.captureException()
