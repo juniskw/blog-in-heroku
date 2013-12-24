@@ -75,7 +75,6 @@ try:
 		  STATICFILES_DIRS = {
 			  os.path.join(BASE_DIR,'static'),
 		  }
-#jjji
 
 
 ## Sentry
@@ -91,4 +90,5 @@ try:
 
 except Exception:
 	from raven.contrib.django.models import client
+
 	client.captureException()

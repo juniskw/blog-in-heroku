@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fastblog.settings")
+
 from raven.contrib.django.models import client
 try:
 		  import os
