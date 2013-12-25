@@ -1,1 +1,1 @@
-web: gunicorn_django -b 0.0.0.0:$PORT fastblog/settings.py
+web: gunicorn_django -b 0.0.0.0:$PORT fastblog
