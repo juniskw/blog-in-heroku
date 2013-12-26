@@ -30,6 +30,7 @@ try:
 				'django.contrib.sessions',
 				'django.contrib.messages',
 				'django.contrib.staticfiles',
+				'fastblog.page_of_fastblog',
 		  )
 
 		  MIDDLEWARE_CLASSES = (
@@ -50,8 +51,12 @@ try:
 		  import dj_database_url
 
 		  DATABASES = {
-				'default': dj_database_url.config()
+				'default': {
+					'ENGINE':u'django.db.backends.sqlite3',
+					'NAME':'fastblog.sqlite',
+				},
 		  }
+		  DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 		  LANGUAGE_CODE = 'en-us'
