@@ -46,6 +46,10 @@ try:
 
 		  WSGI_APPLICATION = 'fastblog.wsgi.application'
 
+		  TEMPLATE_DIRS = (
+		  		'/Users/hayabusaishikawa/heroku/1st-django-blog/templates',
+				'app/templates',
+		  )
 
 # Database
 		  import dj_database_url
