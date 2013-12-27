@@ -77,9 +77,9 @@ try:
 #jjj
 		  STATIC_URL = '/static/'
 #jjj
-		  STATICFILES_DIRS = {
+		  STATICFILES_DIRS = (
 			  os.path.join(BASE_DIR,'static'),
-		  }
+		  )
 
 
 ## Sentry
