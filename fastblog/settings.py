@@ -48,7 +48,7 @@ try:
 
 		  TEMPLATE_DIRS = (
 		  		'/Users/hayabusaishikawa/heroku/1st-django-blog/templates',
-				'app/templates',
+				'/templates',
 		  )
 
 # Database
