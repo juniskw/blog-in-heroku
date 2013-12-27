@@ -1,0 +1,15 @@
+<html>
+	<body>
+		{% for row in rows %}
+			<div>
+				<h2>{{ row.title }}</h2>
+			</div>
+			<div>投稿日時
+				{{ row.create_datetime|date:"Y/m/d" }}
+			</div>
+			<div>
+				{{ row.body }}
+			</div>
+		{% endfor %}
+	</body>
+</html>

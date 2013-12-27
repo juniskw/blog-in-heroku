@@ -5,6 +5,17 @@ from django.template import loader,RequestContext
 
 # from django.shortcuts import render
 
+
+def top_page(req):
+	from fastblog.page_of_fastblog.models import Entry
+	rows = Entry.objects.all().order_by('-create_datetime')
+
+	contexts = RequestContext(req,{
+		'rows':rows,
+	})
+	template = loader.get_template('page_of_fastblog/index.html')
+	return HttpResponse( template.render(contexts) )
+
 def new(req):
 	from fastblog.page_of_fastblog.forms import EntryForm
 
@@ -33,7 +44,3 @@ def new(req):
 
 	return HttpResponse( template.render(contexts) )
 
-"""
-def top_page():
-	pass
-"""
