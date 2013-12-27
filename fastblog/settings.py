@@ -47,8 +47,8 @@ try:
 		  WSGI_APPLICATION = 'fastblog.wsgi.application'
 
 		  TEMPLATE_DIRS = (
-		  		'/Users/hayabusaishikawa/heroku/1st-django-blog/templates',
-				'/templates',
+		  		'/Users/hayabusaishikawa/heroku/1st-django-blog/fastblog/templates',
+				'/app/fastblog/templates',
 		  )
 
 # Database
