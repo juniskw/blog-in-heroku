@@ -19,7 +19,7 @@ def new(req):
 		new_entry = Entry()
 
 		new_entry.title = form.cleaned_data['title']	# form.cleaned_data['name']はフォーム値の取得。それをモデルに渡している。
-		new_entry.body = forms.cleaned_data['body']
+		new_entry.body = form.cleaned_data['body']
 
 		new_entry.save()
 
