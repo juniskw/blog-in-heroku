@@ -47,7 +47,7 @@ try:
 		  WSGI_APPLICATION = 'fastblog.wsgi.application'
 
 		  TEMPLATE_DIRS = (
-				'/app/fastblog/templates',
+				'/app/templates',
 		  )
 
 # Database

@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>ぶろぐ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+		{% for row in rows %}
+			<p>
+				<div>
+					<h2>{{ row.title }}</h2>
+				</div>
+				<div>投稿日{{ row.create_datetime|date:"Y/m/d" }}</div>
+				<div>{{ row.body }}</div>
+			</p>
+		{% endfor %}
+			<a href="/new/"><button type="button" class="btn btn-primary">投稿する！</button></a>
+
+		</div>
+	</body>
+</html>
