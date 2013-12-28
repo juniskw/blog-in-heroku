@@ -12,8 +12,8 @@ urlpatterns = patterns('fastblog.page_of_fastblog.views',
     # url(r'^$', 'fastblog.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 	 
-	 url( r'^$','top_page' ),
-	 url( r'^new/$','new' ),	# view関数はincludeしない！
+	 url( r'^$','top_page',name='Blog' ),
+	 url( r'^new/$','new',name='New' ),	# view関数はincludeしない！
 )
 
 urlpatterns += patterns('',
