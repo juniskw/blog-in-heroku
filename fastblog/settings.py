@@ -4,7 +4,7 @@
 try:
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 		  import os
-		  BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+		  BASE_DIR = os.path.dirname( os.path.abspath(__file__) )#os.path.dirname(os.path.dirname(__file__))
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -47,7 +47,8 @@ try:
 		  WSGI_APPLICATION = 'fastblog.wsgi.application'
 
 		  TEMPLATE_DIRS = (
-				'/app/templates',
+				#'/app/templates',
+				os.path.join(BASE_DIR,'templates'),
 		  )
 
 # Database
