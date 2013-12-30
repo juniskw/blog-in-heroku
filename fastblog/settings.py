@@ -48,7 +48,7 @@ try:
 
 		  TEMPLATE_DIRS = (
 				'/app/templates',
-				# os.path.join(BASE_DIR,'templates'),
+				os.path.join(BASE_DIR,'templates'),
 		  )
 
 # Database
@@ -60,7 +60,7 @@ try:
 					'NAME':'fastblog.sqlite',
 				},
 		  }
-		  DATABASES['default'] = dj_database_url.config()
+		  #DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 		  LANGUAGE_CODE = 'en-us'
