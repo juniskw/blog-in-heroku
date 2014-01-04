@@ -9,18 +9,31 @@
 	</head>
 	<body>
 		<div class="container">
-
-		{% for row in rows %}
-			<p>
+		{% if rows %}
+			{% for row in rows %}
+			<div class="row">
 				<div>
-					<h2>{{ row.title }}</h2>
+					<h2>{{ row.title }}
+						<small>
+							<a class="glyphicon glyphicon-pencil" href="/{{row.id}}/">編集</a>
+						</small>
+					</h2>
 				</div>
-				<div>投稿日{{ row.create_datetime|date:"Y/m/d" }}</div>
-				<div>{{ row.body }}</div>
-			</p>
-		{% endfor %}
-			<a href="/new/"><button type="button" class="btn btn-primary">投稿する！</button></a>
-
+				<div>
+					<p>{{ row.body }}</p>
+					<small>投稿日{{ row.create_datetime|date:"Y/m/d" }}</small>
+				</div>
+			</div>
+			{% endfor %}
+			<br/>
+		{% else %}
+			<p>投稿はありません・・・・。</p>
+		{% endif %}
+			<div class="row">
+				<a href="/new/">
+					<button type="button" class="btn btn-primary btn-lg">新しく投稿する！</button>
+				</a>
+			</div>
 		</div>
 	</body>
 </html>

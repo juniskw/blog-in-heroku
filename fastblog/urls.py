@@ -14,6 +14,7 @@ urlpatterns = patterns('fastblog.page_of_fastblog.views',
 	 
 	 url( r'^$','top_page',name='Blog' ),
 	 url( r'^new/$','new',name='New' ),	# view関数はincludeしない！
+	 url( r'^(?P<entry_id>\d+)/$','edit',name='Edit' ),
 )
 
 urlpatterns += patterns('',

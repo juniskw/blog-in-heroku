@@ -1,9 +1,7 @@
 #coding:utf-8
 
 from django.http import HttpResponse,HttpResponseRedirect
-from django.template import loader,RequestContext
-
-# from django.shortcuts import render
+from django.template import loader,RequestContext,Context
 
 
 def top_page(req):
@@ -25,7 +23,7 @@ def new(req):
 		form = EntryForm()
 
 	if form.is_valid():	# 入力チェック
-		from page_of_fastblog.models import Entry
+		from fastblog.page_of_fastblog.models import Entry
 
 		new_entry = Entry()
 
@@ -44,3 +42,36 @@ def new(req):
 
 	return HttpResponse( template.render(contexts) )
 
+
+def edit(req,entry_id):
+	from django.http import Http404
+	try:
+		from fastblog.page_of_fastblog.models import Entry
+		entry = Entry.objects.get(pk=entry_id)
+	except Entry.DoesNotExist:
+		raise Http404
+	
+	if req.method == 'POST':
+		form = req.POST
+
+		if (form['title']!=entry.title) or (form['body']!=entry.body):	
+		# どちらかが変更されていたら・・・
+
+			entry.title = form['title']
+			entry.body = form['body']
+
+			entry.save()
+
+			return HttpResponseRedirect('/')
+	
+	contexts = RequestContext(req,{
+		'title':entry.title,
+		'body':entry.body,
+	})
+	template = loader.get_template('page_of_fastblog/edit.html')
+
+	return HttpResponse( template.render(contexts) )
+
+
+def delete(req,entry_id):
+	pass
