@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>ぶろぐ</title>
+		<title>削除</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
@@ -35,10 +35,10 @@
 			<br/>
 			<form role="form" action="" method="post">
 				{% csrf_token %}
+				<input type="submit" class="btn btn-lg btn-danger" value="削除" />
 				<a href="/">
 					<input type="button" class="btn btn-lg btn-warning" value="キャンセル" />
 				</a>
-				<input type="submit" class="btn btn-lg btn-danger" value="続行" />
 			</form>
 			<br/>
 		</div>

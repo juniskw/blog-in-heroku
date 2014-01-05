@@ -36,6 +36,7 @@ def new(req):
 
 	contexts = RequestContext(req,{
 		'form':form,
+		'posted':req.method=='POST',
 	})
 
 	template = loader.get_template('page_of_fastblog/new.html')
@@ -67,6 +68,7 @@ def edit(req,entry_id):
 	contexts = RequestContext(req,{
 		'title':entry.title,
 		'body':entry.body,
+		'request':req,
 	})
 	template = loader.get_template('page_of_fastblog/edit.html')
 

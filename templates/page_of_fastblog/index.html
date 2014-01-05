@@ -28,13 +28,13 @@
 					投稿日時{{ row.create_datetime|date:"Y/m/d,h:m" }}　
 					{% ifnotequal row.create_datetime|date:"Y/m/d,h:m" row.update_datetime|date:"Y/m/d,h:m" %}
 					更新日時{{ row.update_datetime|date:"Y/m/d,h:m" }}　
-					{% endifnotequal %}　
+					{% endifnotequal %}
 				</p>
 			</div>
 			{% endfor %}
 			<br/>
 		{% else %}
-			<p>投稿はありません・・・・。</p>
+			<p class="lead">投稿はありません・・・・。</p>
 		{% endif %}
 			<div class="row">
 				<a href="/new/">

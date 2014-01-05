@@ -63,7 +63,7 @@ DATABASES['default'] = dj_database_url.config()
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo Japan'	#'UTC'
 
 USE_I18N = True
 
