@@ -74,4 +74,23 @@ def edit(req,entry_id):
 
 
 def delete(req,entry_id):
-	pass
+	from django.http import Http404
+	try:
+		from fastblog.page_of_fastblog.models import Entry
+		entry = Entry.objects.get(pk=entry_id)
+	except Entry.DoesNotExist:
+		raise Http404
+	
+	if req.method == 'POST':
+		entry.delete()
+		return HttpResponseRedirect('/')
+		
+	template = loader.get_template('page_of_fastblog/delete.html')
+	contexts = RequestContext(req,{
+		'title':entry.title,
+		'body':entry.body,
+		'create':entry.create_datetime,
+		'update':entry.update_datetime,
+	})
+
+	return HttpResponse( template.render(contexts) )

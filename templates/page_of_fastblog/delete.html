@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>ぶろぐ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<br/>
+			<div class="alert alert-danger">
+				<h4><strong>以下の投稿を削除します。本当によろしいですか？</strong></h4>
+			</div>
+
+			<div class="panel-group">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<div class="panel-title">
+							<h3>{{title}}</h3>
+						</div>
+					</div>
+					<div class="panel-body">
+						<p class="lead">{{body}}</p>
+					</div>
+					<p class="text-right">
+					{{create|date:"y/m/d,h:m"}}　
+					{% ifnotequal create|date:"y/m/d,h:m" update|date:"y/m/d,h:m" %}
+					{{update|date:"y/m/d,h:m"}}
+					{% endifnotequal %}
+					</p>
+				</div>
+			</div>
+			<br/>
+			<form role="form" action="" method="post">
+				{% csrf_token %}
+				<a href="/">
+					<input type="button" class="btn btn-lg btn-warning" value="キャンセル" />
+				</a>
+				<input type="submit" class="btn btn-lg btn-danger" value="続行" />
+			</form>
+			<br/>
+		</div>
+	</body>
+</html>

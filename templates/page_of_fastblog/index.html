@@ -8,21 +8,28 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container panel-group">
+			<br/>
 		{% if rows %}
 			{% for row in rows %}
-			<div class="row">
-				<div>
-					<h2>{{ row.title }}
+			<div class="row panel panel-info">
+				<div class="panel-heading">
+					<h2 class="panel-title">{{ row.title }}
 						<small>
-							<a class="glyphicon glyphicon-pencil" href="/{{row.id}}/">編集</a>
+							<a class="glyphicon glyphicon-pencil" href="/{{row.id}}/edit/">編集</a>
+							<a class="glyphicon glyphicon-trash" href="/{{row.id}}/delete/">削除</a>
 						</small>
 					</h2>
 				</div>
-				<div>
-					<p>{{ row.body }}</p>
-					<small>投稿日{{ row.create_datetime|date:"Y/m/d" }}</small>
+				<div class="panel-body">
+					<p class="lead">{{ row.body }}</p>
 				</div>
+				<p class="text-right">
+					投稿日時{{ row.create_datetime|date:"Y/m/d,h:m" }}　
+					{% ifnotequal row.create_datetime|date:"Y/m/d,h:m" row.update_datetime|date:"Y/m/d,h:m" %}
+					更新日時{{ row.update_datetime|date:"Y/m/d,h:m" }}　
+					{% endifnotequal %}　
+				</p>
 			</div>
 			{% endfor %}
 			<br/>
@@ -34,6 +41,7 @@
 					<button type="button" class="btn btn-primary btn-lg">新しく投稿する！</button>
 				</a>
 			</div>
+			<br/>
 		</div>
 	</body>
 </html>

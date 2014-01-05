@@ -46,7 +46,6 @@ ROOT_URLCONF = 'fastblog.urls'
 WSGI_APPLICATION = 'fastblog.wsgi.application'
 
 TEMPLATE_DIRS = (
-	 #'/app/templates',
 	 os.path.join(BASE_DIR,'templates'),
 )
 
