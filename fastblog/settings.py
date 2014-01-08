@@ -51,14 +51,25 @@ TEMPLATE_DIRS = (
 
 # Database
 import dj_database_url
-
+DATABASES = {
+	 'default': {
+		 'ENGINE':u'django.db.backends.postgresql_psycopg2',
+		 'NAME':'d1josmcc6nebsf',
+		 'USER':'dwduxqyceejlnu',
+		 'PASSWORD':'EuF1C1it_T2U3nPLJjFj0Q3uRA',
+		 'HOST':'ec2-54-197-241-78.compute-1.amazonaws.com',
+		 'PORT':'5432',
+	 },
+}
+"""
 DATABASES = {
 	 'default': {
 		 'ENGINE':u'django.db.backends.sqlite3',
 		 'NAME':'fastblog.sqlite',
 	 },
 }
-DATABASES['default'] = dj_database_url.config()
+"""
+#DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
