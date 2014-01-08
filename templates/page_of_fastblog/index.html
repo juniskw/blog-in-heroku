@@ -25,9 +25,9 @@
 					<p class="lead">{{ row.body }}</p>
 				</div>
 				<p class="text-right">
-					投稿日時{{ row.create_datetime|date:"Y/m/d,h:m" }}　
-					{% ifnotequal row.create_datetime|date:"Y/m/d,h:m" row.update_datetime|date:"Y/m/d,h:m" %}
-					更新日時{{ row.update_datetime|date:"Y/m/d,h:m" }}　
+					投稿日時{{ row.create_datetime|date:"Y/m/d,H:i" }}　
+					{% ifnotequal row.create_datetime|date:"Y/m/d,H:i" row.update_datetime|date:"Y/m/d,H:i" %}
+					更新日時{{ row.update_datetime|date:"Y/m/d,H:i" }}　
 					{% endifnotequal %}
 				</p>
 			</div>

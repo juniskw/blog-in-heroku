@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>削除</title>
+		<title>さくじょ</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
@@ -25,9 +25,9 @@
 						<p class="lead">{{body}}</p>
 					</div>
 					<p class="text-right">
-					{{create|date:"y/m/d,h:m"}}　
-					{% ifnotequal create|date:"y/m/d,h:m" update|date:"y/m/d,h:m" %}
-					{{update|date:"y/m/d,h:m"}}
+					投稿日時{{create|date:"y/m/d,H:i"}}　
+					{% ifnotequal create|date:"y/m/d,H:i" update|date:"y/m/d,H:i" %}
+					更新日時{{update|date:"y/m/d,H:i"}}
 					{% endifnotequal %}
 					</p>
 				</div>
