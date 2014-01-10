@@ -27,7 +27,7 @@
 					<h2>ユーザー名・パスワードを入力してください。</h2>
 				</div>
 				{% endifequal %}
-				<div class="col-xs-4">
+				<div class="col-xs-6">
 					<form class="form-horizontal" role="form" action="" method="post">
 					{% csrf_token %}
 						<div class="form-group">
@@ -42,7 +42,6 @@
 						<div class="form-group">
 							<input class="btn btn-info btn-lg" type="submit" value="ログイン" />
 							<a type="button" href="/" class="btn btn-warning btn-lg">キャンセル</a>
-							</a>
 						</div>
 					</form>
 				</div>
