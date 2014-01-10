@@ -50,7 +50,9 @@ TEMPLATE_DIRS = (
 )
 
 # Database
-import dj_database_url
+
+#import dj_database_url
+
 DATABASES = {
 	 'default': {
 		 'ENGINE':u'django.db.backends.postgresql_psycopg2',

@@ -140,6 +140,8 @@ def delete(req,entry_id):
 def log_in(req):
 	from django.contrib.auth import login
 
+	user = None
+
 	if req.method=='POST':
 		uname = req.POST['username']
 		pword = req.POST['password']
@@ -153,18 +155,18 @@ def log_in(req):
 				return HttpResponseRedirect('/')	#go to next
 
 			else:
-
-				return HttpResponse("Error: account is not active...")	#
+				pass	
 
 		else:
-	
-			return HttpResponse("Error: login was failed...,Please retry")	#
+			pass	
 
-	else:
-		template = loader.get_template('page_of_fastblog/login.html')
-		contexts = RequestContext(req,{})
+	contexts = RequestContext(req,{
+		'request':req.method,
+		'user':user,
+	})
+	template = loader.get_template('page_of_fastblog/login.html')
 
-		return HttpResponse( template.render(contexts) )
+	return HttpResponse( template.render(contexts) )
 
 def log_out(req):
 	from django.contrib.auth import logout
