@@ -8,40 +8,47 @@
 		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="container">
-
-			<br/>
-			{% ifequal request "POST" %}
-				{% if not user.is_authenticated %}
-			<div class="alert alert-danger">
-				<strong>入力情報が誤っています。</strong>
-			</div>
-				{% else %}<!-- 動かず -->
-					{% if not user.is_active %}
-			<div class="alert alert-danger">
-				<strong>このユーザーは失効されています。</strong>
-			</div>
+		<div class="jumbotron">
+			<div class="container">
+				{% ifequal request "POST" %}
+					{% if not user.is_authenticated %}
+				<div class="alert alert-danger">
+					<strong>入力情報が誤っています。</strong>
+				</div>
+					{% else %}<!-- 動かず -->
+						{% if not user.is_active %}
+				<div class="alert alert-danger">
+					<strong>このユーザーは失効されています。</strong>
+				</div>
+						{% endif %}
 					{% endif %}
-				{% endif %}
-			{% endifequal %}
-			<div class="col-xs-4">
-				<form class="form-horizontal" role="form" action="" method="post">
-				{% csrf_token %}
-					<div class="form-group">
-						<label for="uname">ユーザー名</label>
-						<input type="text" class="form-control input-lg" id="uname" name="username" />
-					</div>
-					<div class="form-group">
-						<label for="pass">パスワード</label>
-						<input type="password" class="form-control input-lg" id="pass" name="password" />
-					</div>
-					<div class="form-group">
-						<input class="btn btn-default btn-lg" type="submit" />
-					</div>
-				</form>
-			</div>
-			<br/>
+				{% else %}
+				<div class="alert alert-info">
+					<h2>ユーザー名・パスワードを入力してください。</h2>
+				</div>
+				{% endifequal %}
+				<div class="col-xs-4">
+					<form class="form-horizontal" role="form" action="" method="post">
+					{% csrf_token %}
+						<div class="form-group">
+							<label for="uname">ユーザー名</label>
+							<input type="text" class="form-control input-lg" id="uname" name="username" />
+						</div>
+						<div class="form-group">
+							<label for="pass">パスワード</label>
+							<input type="password" class="form-control input-lg" id="pass" name="password" />
+						</div>
+						<br/>
+						<div class="form-group">
+							<input class="btn btn-info btn-lg" type="submit" value="ログイン" />
+							<a type="button" href="/" class="btn btn-warning btn-lg">キャンセル</a>
+							</a>
+						</div>
+					</form>
+				</div>
+				<br/>
 
+			</div>
 		</div>
 	</body>
 </html>

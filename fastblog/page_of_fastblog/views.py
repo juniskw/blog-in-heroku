@@ -152,7 +152,7 @@ def log_in(req):
 
 				login(req,user)
 
-				return HttpResponseRedirect('/')	#go to next
+				return HttpResponseRedirect(req.GET['next'])	#go to next
 
 			else:
 				pass	
@@ -171,5 +171,8 @@ def log_in(req):
 def log_out(req):
 	from django.contrib.auth import logout
 	logout(req)
+	
+	template = loader.get_template('page_of_fastblog/logout.html')
+	contexts = Context({})
 
-	return HttpResponseRedirect('/')
+	return HttpResponse( template.render(contexts) )

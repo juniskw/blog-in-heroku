@@ -9,17 +9,27 @@
 	</head>
 	<body>
 		<div class="container panel-group">
-			<a href="/logout/"><p class="text-right">ログアウト</p></a>
 			<br/>
+			<p class="text-right">
+			{% if user.is_authenticated %}
+				こんにちは、<strong>{{user.username}}</strong>さん。　
+				<a type="button" class="btn btn-success" href="/logout/">ログアウト</a>
+			{% else %}
+				ログインしていません・・・。　
+				<a type="button" class="btn btn-info" href="/login/?next=/">ログイン</a>
+			{% endif %}
+			</p>
 		{% if rows %}
 			{% for row in rows %}
 			<div class="row panel panel-info">
 				<div class="panel-heading">
 					<h2 class="panel-title">{{ row.title }}
+					{% ifequal user row.owner %}
 						<small>
 							<a class="glyphicon glyphicon-pencil" href="/{{row.id}}/edit/">編集</a>
 							<a class="glyphicon glyphicon-trash" href="/{{row.id}}/delete/">削除</a>
 						</small>
+					{% endifequal %}
 					</h2>
 				</div>
 				<div class="panel-body">
