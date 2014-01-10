@@ -2,3 +2,4 @@ venv
 *.pyc
 staticfiles
 fastblog.sqlite
+fastblog/settings.py
