@@ -52,7 +52,7 @@ TEMPLATE_DIRS = (
 # Database
 
 #import dj_database_url
-
+"""
 DATABASES = {
 	 'default': {
 		 'ENGINE':u'django.db.backends.postgresql_psycopg2',
@@ -70,7 +70,7 @@ DATABASES = {
 		 'NAME':'fastblog.sqlite',
 	 },
 }
-"""
+
 #DATABASES['default'] = dj_database_url.config()
 
 # Internationalization

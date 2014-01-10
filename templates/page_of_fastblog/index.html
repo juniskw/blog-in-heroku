@@ -10,12 +10,11 @@
 	<body>
 		<div class="container panel-group">
 			<br/>
-			<p class="text-right">
+			<p class="text-right lead">
 			{% if user.is_authenticated %}
 				こんにちは、<strong>{{user.username}}</strong>さん。　
 				<a type="button" class="btn btn-success" href="/logout/">ログアウト</a>
 			{% else %}
-				ログインしていません・・・。　
 				<a type="button" class="btn btn-info" href="/login/?next=/">ログイン</a>
 			{% endif %}
 			</p>
@@ -36,9 +35,10 @@
 					<p class="lead">{{ row.body }}</p>
 				</div>
 				<p class="text-right">
-					投稿日時{{ row.create_datetime|date:"Y/m/d,H:i" }}　
+					投稿者：{{ row.owner.username }}　
+					投稿日時：{{ row.create_datetime|date:"Y/m/d,H:i" }}　
 					{% ifnotequal row.create_datetime|date:"Y/m/d,H:i" row.update_datetime|date:"Y/m/d,H:i" %}
-					更新日時{{ row.update_datetime|date:"Y/m/d,H:i" }}　
+					更新日時：{{ row.update_datetime|date:"Y/m/d,H:i" }}　
 					{% endifnotequal %}
 				</p>
 			</div>
