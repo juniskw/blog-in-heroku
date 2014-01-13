@@ -76,7 +76,7 @@ DATABASES = {
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Tokyo'	#'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
